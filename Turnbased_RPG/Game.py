@@ -55,7 +55,9 @@ def create_character():
 
 
 def load_character():
-    if os.path.exists(os.path.expanduser("~/Documents/Turnbased_RPG_save/save.ini")):
+    if not os.path.exists(os.path.expanduser("~/Documents/Turnbased_RPG_save/save.ini")):
+        print("FILE DOES NOT EXIST")
+    else:
         save_file = open(os.path.expanduser("~/Documents/Turnbased_RPG_save/save.ini"), "r")
         load_properties = set()
         lines = save_file.readlines()
@@ -66,29 +68,29 @@ def load_character():
         load_list = list(load_properties)
         load_list.sort()
 
-        if load_list[3] == "Mage":
+        if load_list.__contains__("Mage"):
             load_list.pop(3)
             loaded_class = Mage(load_list[2], int(load_list[0]), int(load_list[0]), int(load_list[1]))
-            print("CHARACTER LOADED SUCCESSFULLY")
+            print("CHARACTER LOADED SUCCESSFULLY\n")
             load_list.clear()
             if load_list.__len__() == 0:
-                print("LIST CLEAR")
+                print("LIST CLEAR\n")
 
-        elif load_list[3] == "Warrior":
+        elif load_list.__contains__("Warrior"):
             load_list.pop(3)
             loaded_class = Warrior(load_list[2], int(load_list[0]), int(load_list[0]), int(load_list[1]))
-            print("CHARACTER LOADED SUCCESSFULLY")
+            print("CHARACTER LOADED SUCCESSFULLY\n")
             load_list.clear()
             if load_list.__len__() == 0:
-                print("LIST CLEAR")
+                print("LIST CLEAR\n")
 
         else:
             load_list.pop(3)
             loaded_class = Bard(load_list[2], int(load_list[0]), int(load_list[0]), (load_list[1]))
-            print("CHARACTER LOADED SUCCESSFULLY")
+            print("CHARACTER LOADED SUCCESSFULLY\n")
             load_list.clear()
             if load_list.__len__() == 0:
-                print("LIST CLEAR")
+                print("LIST CLEAR\n")
 
     return loaded_class
 
@@ -96,8 +98,10 @@ def load_character():
 def save_character(player_class):
     if not os.path.exists(os.path.expanduser("~/Documents/Turnbased_RPG_save/")):
         os.makedirs(os.path.expanduser("~/Documents/Turnbased_RPG_save/"))
-        open(os.path.expanduser("~/Documents/Turnbased_RPG_save/save.ini"), "w").close()
-        save_file = open(os.path.expanduser("~/Documents/Turnbased_RPG_save/save.ini"), "w")
+    else:
+        save_file = open(os.path.expanduser("~/Documents/Turnbased_RPG_save/save.ini"), "w+")
+        save_file.truncate()
+
         if type(player_class) == Mage:
             save_file.write("Class=Mage\n")
             save_file.write(f"Name={player_class.name}\n")
@@ -105,6 +109,7 @@ def save_character(player_class):
             save_file.write(f"Max_HP={player_class.max_hp}\n")
             save_file.write(f"Intelligence={player_class.int}\n")
             save_file.close()
+            print("CHARACTER SAVED SUCCESSFULLY\n")
 
         elif type(player_class) == Warrior:
             save_file.write("Class=Warrior\n")
@@ -113,6 +118,8 @@ def save_character(player_class):
             save_file.write(f"Max_HP={player_class.max_hp}\n")
             save_file.write(f"Enrage={player_class.enrage}\n")
             save_file.close()
+            print("CHARACTER SAVED SUCCESSFULLY\n")
+
         else:
             save_file.write("Class=Bard\n")
             save_file.write(f"Name={player_class.name}\n")
@@ -120,9 +127,12 @@ def save_character(player_class):
             save_file.write(f"Max_HP={player_class.max_hp}\n")
             save_file.write(f"Song={player_class.song}\n")
             save_file.close()
+            print("CHARACTER SAVED SUCCESSFULLY\n")
 
 
 player_character = create_character()
+print(player_character)
 save_character(player_character)
 loaded_character = load_character()
 print(f"{loaded_character}")
+
