@@ -1,3 +1,6 @@
+from random import randint
+
+
 class Character:
     """ Defines a basic character object"""
     def __init__(self, name: str, hp: int, max_hp: int):
@@ -11,6 +14,12 @@ class Warrior(Character):
     def __init__(self, name: str, hp: int, max_hp: int, enrage: int):
         Character.__init__(self, name, hp, max_hp)
         self.enrage = enrage
+        self.weapon_damage = randint(1, 12) * 2.5
+        self.damage = 0.0
+
+    def attack(self, warrior) -> float:
+        self.damage = float(warrior.enrage + warrior.weapon_damage)
+        return self.damage
 
 
 class Mage(Character):
@@ -47,3 +56,7 @@ class Boss(Character):
         Character.__init__(self, name, hp, max_hp)
         self.corruption = corruption
 
+
+class Party:
+    def __init__(self, player, comp1, comp2):
+        pass

@@ -1,3 +1,5 @@
+# This holds the logic for the game and characters
+
 from Engine import *
 from random import randint
 import os
@@ -6,9 +8,13 @@ import os
 def create_character():
     song_choice = ["Enchanted Ballad", "Orchestra of Battle", "Soothing Rhythm"]
     while True:
+        print("Welcome to the Arena!\n")
         class_choice = input("Choose your class: A) Mage. B) Warrior. C) Bard. [A/B/C]? ")
         if class_choice in ["A", "B", "C"]:
             break
+        else:
+            print("That was an invalid choice, try again please")
+
     if class_choice == "A":
         print("You have chosen the Mage class!\n")
         name = input("Enter your characters name: ")
@@ -129,10 +135,4 @@ def save_character(player_class):
             save_file.close()
             print("CHARACTER SAVED SUCCESSFULLY\n")
 
-
-player_character = create_character()
-print(player_character)
-save_character(player_character)
-loaded_character = load_character()
-print(f"{loaded_character}")
 
