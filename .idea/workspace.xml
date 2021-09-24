@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e12892ba-dec0-4219-8e1e-1380fd23d99a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turnbased_RPG/Engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/Turnbased_RPG/Engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turnbased_RPG/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/Turnbased_RPG/Game.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +41,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/pythonProject1" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -117,5 +120,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
