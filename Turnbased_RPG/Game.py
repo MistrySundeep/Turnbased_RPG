@@ -1,8 +1,14 @@
 # This holds the logic for the game and characters
+import pygame
 
 from Engine import *
 from random import randint
 import os
+
+width = 1280
+height = 720
+caption = "The Arena - Turned Based RPG"
+fullscreen = 0
 
 
 def create_character():
@@ -134,5 +140,23 @@ def save_character(player_class):
             save_file.write(f"Song={player_class.song}\n")
             save_file.close()
             print("CHARACTER SAVED SUCCESSFULLY\n")
+
+
+def initialise_window():
+    window = Window(width, height, caption, fullscreen)
+    # font = pygame.font.Font("Turnbased_RPG/EightBitDragon-anqx.ttf", 20)
+    # text = font.render("Hello World", True, (255, 255, 255))
+    # text_rect = text.get_rect()
+    # text_rect.center(500, 900)
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit(0)
+
+        window.clear()
+        window.show_frame()
+
 
 
