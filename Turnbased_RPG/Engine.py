@@ -1,17 +1,4 @@
 from random import randint
-import pygame
-
-
-class Window:
-    def __init__(self, width, height, caption, fullscreen):
-        self.window = pygame.display.set_mode((width, height), fullscreen)
-        pygame.display.set_caption(caption)
-
-    def show_frame(self):
-        pygame.display.flip()
-
-    def clear(self):
-        self.window.fill((0, 0, 0))
 
 
 class Character:

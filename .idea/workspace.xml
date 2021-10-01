@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e12892ba-dec0-4219-8e1e-1380fd23d99a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Turnbased_RPG/EightBitDragon-anqx.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Turnbased_RPG/Engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/Turnbased_RPG/Engine.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Turnbased_RPG/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/Turnbased_RPG/Game.py" afterDir="false" />
@@ -51,6 +50,8 @@
       <recent name="C:\Users\mistr\OneDrive\Documents\GitHub\Turnbased_RPG\Turnbased_RPG" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mistr\OneDrive\Documents\GitHub\Turnbased_RPG\venv\Lib\site-packages\pygame" />
+      <recent name="C:\Users\mistr\OneDrive\Documents\GitHub\Turnbased_RPG\venv\Lib\site-packages" />
       <recent name="C:\Users\mistr\OneDrive\Documents\GitHub\Turnbased_RPG\Turnbased_RPG" />
     </key>
   </component>
