@@ -27,9 +27,17 @@ while choice:
         open_help()
         print("\n")
 
+# Start combat with first enemy
 slow_print("GENERATING ENEMIES\n\n")
 enemy = create_mob()
+
+slow_print("The Arena is a 1v1 challenge where you fight progressively stronger opponents until you reach the final "
+           "boss.\n")
+slow_print("As you progress you will get stronger and wiser, with the addition of new equipment can you make it out "
+           "alive?\n")
 slow_print("As you enter The Arena, steel yourself adventurer for there is no turning back...\n\n")
+
 create_title("Round 1")
-# Start combat with first enemy
-# Learn how to destroy an object
+
+
+
