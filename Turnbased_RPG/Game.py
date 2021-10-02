@@ -11,7 +11,7 @@ import os
 def create_character():
     song_choice = ["Enchanted Ballad", "Orchestra of Battle", "Soothing Rhythm"]
     while True:
-        print("Welcome to the Arena!\n")
+        print("Welcome to The Arena!\n")
         class_choice = input("Choose your class: A) Mage. B) Warrior. C) Bard. \n\n[A/B/C]? ")
         if class_choice in ["A", "B", "C"]:
             break
@@ -30,11 +30,11 @@ def create_character():
     elif class_choice == "B":
         print("You have chosen the Warrior class!")
         name = input("Enter your characters name: ")
-        enrage_roll = randint(1, 12) * 7
-        player = Warrior(name, 150, 150, enrage_roll)
+        resolve_roll = randint(1, 12) * 7
+        player = Warrior(name, 150, 150, resolve_roll)
         print(f"Welcome to the fight {player.name}")
         print(
-            f"Here are your stats: \n \t-name: {player.name}\n \t-HP: {player.max_hp}\n \t-Intelligence: {player.enrage}\n ")
+            f"Here are your stats: \n \t-name: {player.name}\n \t-HP: {player.max_hp}\n \t-Resolve: {player.resolve}\n ")
 
     else:
         print("You have chosen the Bard class!")
@@ -46,7 +46,7 @@ def create_character():
             player = Bard(name, 120, 120, song_choice[0])
             print(f"Welcome to the fight {player.name}")
             print(
-                f"Here are your stats: \n \t-name: {player.name}\n \t-HP: {player.max_hp}\n \t-Intelligence: {player.song}\n ")
+                f"Here are your stats: \n \t-name: {player.name}\n \t-HP: {player.max_hp}\n \t-Song {player.song}\n ")
 
         elif song == "B":
             player = Bard(name, 120, 120, song_choice[1])
@@ -127,7 +127,7 @@ def save_character(player_class):
             save_file.write(f"Name={player_class.name}\n")
             save_file.write(f"HP={player_class.hp}\n")
             save_file.write(f"Max_HP={player_class.max_hp}\n")
-            save_file.write(f"Enrage={player_class.enrage}\n")
+            save_file.write(f"Enrage={player_class.resolve}\n")
             save_file.close()
             print("CHARACTER SAVED SUCCESSFULLY\n")
 
@@ -151,9 +151,9 @@ def slow_print(title):
 
 
 # Prints game start title
-def create_title():
+def create_title(text):
     banner = Figlet(font="epic")
-    print(banner.renderText("The Arena"))
+    print(banner.renderText(text))
 
 
 # Opens a text file explaining the mechanics of the game to the user
@@ -195,16 +195,21 @@ def create_mob():
     armour = create_mob_armour()
     enrage = create_mob_enrage()
 
-    class_choice = randint(0, 1)
+    created_mob = []
 
-    if class_choice == 0:
-        mob = Goblin(name[0], hp[0], hp[0], enrage[0])
-        hp.pop(0)
-        enrage.pop(0)
-        return mob
+    for i in range(0, 6):
+        class_choice = randint(0, 1)
 
-    else:
-        mob = Troll(name[1], hp[0], hp[0], armour[0])
-        hp.pop(0)
-        armour.pop()
-        return mob
+        if class_choice == 0:
+            mob = Goblin(name[0], hp[0], hp[0], enrage[0])
+            hp.pop(0)
+            enrage.pop(0)
+            created_mob.insert(i, mob)
+
+        else:
+            mob = Troll(name[1], hp[0], hp[0], armour[0])
+            hp.pop(0)
+            armour.pop()
+            created_mob.insert(i, mob)
+
+    return created_mob
