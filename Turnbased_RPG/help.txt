@@ -1,1 +1,18 @@
-HELLO WORLD
+Welcome to The Arena!
+
+This is a turn based rpg where you can create a character of 3 different class types: Warrior, Bard or Mage. Each round you will fight progressively stronger monsters till you
+reach the final boss, will you be able to get strong enough to exit The Arena a champion?
+
+Key Stats:
+
+Resolve (Warrior): This value determines how tanky your character is, this acts as armour and damage will be taken from this value first before your hp.
+
+Intelligence (Mage): This value determines how much damage your spells can do
+
+Songs (Bard): Each song has its own unique effect, during character creation you get to choose 1 song:
+
+	Enchanted Ballad: This increases your attack damage for your weapon for 2 turns, has a 3 turn cooldown
+
+	Orchestra of Battle: Has a chance to fear an enemy, skipping their turn, has a 2 turn cooldown
+
+	Soothing Rhythm: Heals the player for 50hp, has a 4 turn cooldown

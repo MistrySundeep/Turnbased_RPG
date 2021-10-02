@@ -16,10 +16,11 @@ while choice:
     if menu_choice == "quit":
         quit(0)
 
-    if menu_choice == "create":
+    if menu_choice == "start":
         # create new character function
-        new_character = create_character()
-        save_character(new_character)
+        player = create_character()
+        player_weapon = create_weapon(player)
+        save_character(player, player_weapon)
         choice = False
 
     elif menu_choice == "help":

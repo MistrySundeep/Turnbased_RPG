@@ -1,6 +1,7 @@
 from random import randint
 
 
+# Classes for player characters and enemy characters
 class Character:
     """ Defines a basic character object"""
 
@@ -8,6 +9,8 @@ class Character:
         self.name = name
         self.hp = hp
         self.max_hp = max_hp
+        self.xp = 0
+        self.level = 1
 
 
 class Warrior(Character):
@@ -16,12 +19,7 @@ class Warrior(Character):
     def __init__(self, name: str, hp: int, max_hp: int, resolve: int):
         Character.__init__(self, name, hp, max_hp)
         self.resolve = resolve
-        self.weapon_damage = randint(1, 12) * 2.5
         self.damage = 0.0
-
-    def attack(self, warrior) -> float:
-        self.damage = float(warrior.enrage + warrior.weapon_damage)
-        return self.damage
 
 
 class Mage(Character):
@@ -30,6 +28,7 @@ class Mage(Character):
     def __init__(self, name: str, hp: int, max_hp: int, intelligence: int):
         Character.__init__(self, name, hp, max_hp)
         self.int = intelligence
+        self.damage = 0.0
 
 
 class Bard(Character):
@@ -38,6 +37,7 @@ class Bard(Character):
     def __init__(self, name: str, hp: int, max_hp: int, song: str):
         Character.__init__(self, name, hp, max_hp)
         self.song = song
+        self.damage = 0.0
 
 
 class Goblin(Character):
@@ -46,6 +46,7 @@ class Goblin(Character):
     def __init__(self, name: str, hp: int, max_hp: int, enrage: int):
         Character.__init__(self, name, hp, max_hp)
         self.enrage = enrage
+        self.damage = 0.0
 
 
 class Troll(Character):
@@ -54,6 +55,7 @@ class Troll(Character):
     def __init__(self, name: str, hp: int, max_hp: int, armour: float):
         Character.__init__(self, name, hp, max_hp)
         self.armour = armour
+        self.damage = 0.0
 
 
 class Boss(Character):
@@ -62,3 +64,28 @@ class Boss(Character):
     def __init__(self, name: str, hp: int, max_hp: int, corruption: int):
         Character.__init__(self, name, hp, max_hp)
         self.corruption = corruption
+        self.damage = 0.0
+
+
+class Weapon:
+    def __init__(self, name: str, damage_type: str):
+        self.name = name
+        self.damage_type = damage_type
+
+
+class Axe(Weapon):
+    def __init__(self, name: str, damage_type: str, damage_stat: int):
+        Weapon.__init__(self, name, damage_type)
+        self.damage_stat = damage_stat
+
+
+class Bow(Weapon):
+    def __init__(self, name: str, damage_type: str, damage_stat: int):
+        Weapon.__init__(self, name, damage_type)
+        self.damage_stat = damage_stat
+
+
+class Wand(Weapon):
+    def __init__(self, name: str, damage_type: str, damage_stat: int):
+        Weapon.__init__(self, name, damage_type)
+        self.damage_stat = damage_stat
