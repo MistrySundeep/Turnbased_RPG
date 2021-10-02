@@ -1,10 +1,10 @@
 # This holds the logic for the game and characters
 import sys
 import time
+from pyfiglet import Figlet
 from Engine import *
 from random import randint
 import os
-import pygame
 
 
 def create_character():
@@ -145,3 +145,6 @@ def slow_print(title):
         time.sleep(0.1)
 
 
+def create_title():
+    banner = Figlet(font="epic")
+    print(banner.renderText("The Arena"))

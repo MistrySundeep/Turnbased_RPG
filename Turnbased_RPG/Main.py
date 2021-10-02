@@ -1,37 +1,20 @@
-import pygame
 from Game import *
 
-pygame.init()
-pygame.font.init()
-
-
-def init_screen():
-    screen = pygame.display.set_mode((1280, 720))
-    clock = pygame.time.Clock()
-    done = False
-
-    font = pygame.font.Font(r"C:\Users\mistr\OneDrive\Documents\GitHub\Turnbased_RPG\Turnbased_RPG\EightBitDragon-anqx.ttf", 50)
-    text = font.render("Hello, World", True, (255, 255, 255))
-
-    while not done:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                quit(0)
-                done = True
-            if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-                done = True
-
-        screen.fill((0, 0, 0))
-        screen.blit(text, (490, 300))
-
-        pygame.display.flip()
-        clock.tick(60)
-
-
 # First Intro Game Title (ASCII)
-init_screen()
 # Ask user to start new or load game
-slow_print("Hello there adventurer, would you like to start a new game or load a current save?")
-
 # Add help option/command that gives the user info on the different stats and how they work
+create_title()
+slow_print("Hello Adventurer! Welcome to The Arena\n\n")
+slow_print("What would you like to do: \n\t*New Game*\n\t*Load Game*\n\t*Help*\n\n")
+slow_print("Press 1, 2 or 3 for your choice\n")
+menu_choice = int(input("Your choice: "))
 
+if menu_choice == 1:
+    # create new character function
+    create_character()
+elif menu_choice == 2:
+    # load character function
+    load_character()
+else:
+    # Open a txt file that explains the mechanics of the game TODO
+    pass
