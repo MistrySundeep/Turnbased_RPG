@@ -11,11 +11,11 @@ class Character:
 
 
 class Warrior(Character):
-    """ Defines a Warrior object, which is a type of character. Special trait is enrage """
+    """ Defines a Warrior object, which is a type of character. Special trait is resolve """
 
-    def __init__(self, name: str, hp: int, max_hp: int, enrage: int):
+    def __init__(self, name: str, hp: int, max_hp: int, resolve: int):
         Character.__init__(self, name, hp, max_hp)
-        self.enrage = enrage
+        self.resolve = resolve
         self.weapon_damage = randint(1, 12) * 2.5
         self.damage = 0.0
 
@@ -41,11 +41,11 @@ class Bard(Character):
 
 
 class Goblin(Character):
-    """ Defines a Goblin Character, which is a type of character. Special trait is size """
+    """ Defines a Goblin Character, which is a type of character. Special trait is enrage """
 
-    def __init__(self, name: str, hp: int, max_hp: int, size: float):
+    def __init__(self, name: str, hp: int, max_hp: int, enrage: int):
         Character.__init__(self, name, hp, max_hp)
-        self.size = size
+        self.enrage = enrage
 
 
 class Troll(Character):

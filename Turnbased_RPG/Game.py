@@ -7,11 +7,12 @@ from random import randint
 import os
 
 
+# Prompts the user to create a character from the 3 different class types: Warrior, Mage and Bard
 def create_character():
     song_choice = ["Enchanted Ballad", "Orchestra of Battle", "Soothing Rhythm"]
     while True:
         print("Welcome to the Arena!\n")
-        class_choice = input("Choose your class: A) Mage. B) Warrior. C) Bard. [A/B/C]? ")
+        class_choice = input("Choose your class: A) Mage. B) Warrior. C) Bard. \n\n[A/B/C]? ")
         if class_choice in ["A", "B", "C"]:
             break
         else:
@@ -62,6 +63,7 @@ def create_character():
     return player
 
 
+# Loads a character that has been previously created and saved by the user
 def load_character():
     if not os.path.exists(os.path.expanduser("~/Documents/Turnbased_RPG_save/save.ini")):
         print("FILE DOES NOT EXIST")
@@ -103,6 +105,7 @@ def load_character():
     return loaded_class
 
 
+# Saves the users character, run after character creation
 def save_character(player_class):
     if not os.path.exists(os.path.expanduser("~/Documents/Turnbased_RPG_save/")):
         os.makedirs(os.path.expanduser("~/Documents/Turnbased_RPG_save/"))
@@ -138,6 +141,8 @@ def save_character(player_class):
             print("CHARACTER SAVED SUCCESSFULLY\n")
 
 
+# Prints text to console at a slower speed to give the feeling of a game
+# Possibly increase text speed?
 def slow_print(title):
     for letter in title:
         sys.stdout.write(letter)
@@ -145,6 +150,61 @@ def slow_print(title):
         time.sleep(0.1)
 
 
+# Prints game start title
 def create_title():
     banner = Figlet(font="epic")
     print(banner.renderText("The Arena"))
+
+
+# Opens a text file explaining the mechanics of the game to the user
+def open_help():
+    os.startfile("help.txt")
+
+
+# Generate a random enemy
+def create_mob_hp():
+    hp = []
+
+    for i in range(1, 7):
+        hp.insert(i, (i * 30) + 20)
+
+    return hp
+
+
+def create_mob_armour():
+    armour = []
+
+    for i in range(1, 7):
+        armour.insert(i, (i * 25) + 50)
+
+    return armour
+
+
+def create_mob_enrage():
+    enrage = []
+
+    for i in range(1, 7):
+        enrage.append(i)
+
+    return enrage
+
+
+def create_mob():
+    name = ['Goblin', 'Troll']
+    hp = create_mob_hp()
+    armour = create_mob_armour()
+    enrage = create_mob_enrage()
+
+    class_choice = randint(0, 1)
+
+    if class_choice == 0:
+        mob = Goblin(name[0], hp[0], hp[0], enrage[0])
+        hp.pop(0)
+        enrage.pop(0)
+        return mob
+
+    else:
+        mob = Troll(name[1], hp[0], hp[0], armour[0])
+        hp.pop(0)
+        armour.pop()
+        return mob

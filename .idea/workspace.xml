@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e12892ba-dec0-4219-8e1e-1380fd23d99a" name="Changes" comment="Playing with text on pygame screen, may be removed">
+      <change afterPath="$PROJECT_DIR$/Turnbased_RPG/help.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turnbased_RPG/EightBitDragon-anqx.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turnbased_RPG/Engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/Turnbased_RPG/Engine.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Turnbased_RPG/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/Turnbased_RPG/Game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Turnbased_RPG/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Turnbased_RPG/Main.py" afterDir="false" />
     </list>
@@ -170,5 +173,16 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Turnbased_RPG/Game.py</url>
+          <line>194</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
