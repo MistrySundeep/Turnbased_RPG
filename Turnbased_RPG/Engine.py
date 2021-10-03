@@ -1,6 +1,3 @@
-from random import randint
-
-
 # Classes for player characters and enemy characters
 class Character:
     """ Defines a basic character object"""
@@ -19,7 +16,8 @@ class Warrior(Character):
     def __init__(self, name: str, hp: int, max_hp: int, resolve: int):
         Character.__init__(self, name, hp, max_hp)
         self.resolve = resolve
-        self.damage = 0.0
+        self.damage = (self.level * 5) + 10
+        self.shield = 0
 
 
 class Mage(Character):

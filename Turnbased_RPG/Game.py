@@ -111,7 +111,7 @@ def save_character(player_class, player_weapon):
             save_file.close()
             print("CHARACTER SAVED SUCCESSFULLY\n")
 
-        else:
+        elif player_class == type(Bard):
             save_file.write("Class=Bard\n")
             save_file.write(f"Name={player_class.name}\n")
             save_file.write(f"HP={player_class.hp}\n")
@@ -134,12 +134,14 @@ def create_weapon(player):
         print(f"Here are your weapon stats:\n \tName:{player_weapon.name}\n \tDamage Type:{player_weapon.damage_type}\n "
               f"\tDamage Stats:{player_weapon.damage_stat}\n")
         return player_weapon
+
     elif type(player) == "Warrior":
         player_weapon = Axe("Great Axe", "physical", 15)
         print(f"Here are your weapon stats:\n \tName:{player_weapon.name}\n \tDamage Type:{player_weapon.damage_type}\n "
               f"\tDamage Stats:{player_weapon.damage_stat}\n")
         return player_weapon
-    else:
+
+    elif type(player) == "Bard":
         player_weapon = Bow("Sharpshooter", "physical", 10)
         print(f"Here are your weapon stats:\n \tName:{player_weapon.name}\n \tDamage Type:{player_weapon.damage_type}\n "
               f"\tDamage Stat:{player_weapon.damage_stat}\n")
@@ -212,5 +214,26 @@ def create_mob():
     return created_mob
 
 
+def player_attack(player, enemy, weapon):
+    # Calculate damage
+    damage_calc = player.damage + weapon.damage_stat
+    round(damage_calc, 0)
+    # Calculate hit chance: 1 - 6. 1 is the least amount of damage 6 is full damage
+    chance = randint(1, 6)
+    damage_calc = (damage_calc / 6) * chance
+    round(damage_calc, 0)
+    print(f"You roll {chance}, you hit {enemy.name} for {damage_calc}")
+    enemy.hp = enemy.hp - damage_calc
 
 
+def enemy_attack(player, enemy):
+    pass
+
+
+def check_if_enemy_dead(enemy) -> bool:
+    if enemy.hp == 0.0:
+        print(f"You have slain the {enemy.name}, well done adventurer")
+        return True
+    else:
+        print("Good hit, keep it up")
+        return False
