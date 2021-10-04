@@ -129,22 +129,25 @@ def save_character(player_class, player_weapon):
 
 
 def create_weapon(player):
-    if type(player) == "Mage":
+    if type(player) == Mage:
         player_weapon = Wand("Magik Stik", "magic", 12)
-        print(f"Here are your weapon stats:\n \tName:{player_weapon.name}\n \tDamage Type:{player_weapon.damage_type}\n "
-              f"\tDamage Stats:{player_weapon.damage_stat}\n")
+        print(
+            f"Here are your weapon stats:\n \tName: {player_weapon.name}\n \tDamage Type: {player_weapon.damage_type}\n "
+            f"\tDamage Stats: {player_weapon.damage_stat}\n")
         return player_weapon
 
-    elif type(player) == "Warrior":
+    elif type(player) == Warrior:
         player_weapon = Axe("Great Axe", "physical", 15)
-        print(f"Here are your weapon stats:\n \tName:{player_weapon.name}\n \tDamage Type:{player_weapon.damage_type}\n "
-              f"\tDamage Stats:{player_weapon.damage_stat}\n")
+        print(
+            f"Here are your weapon stats:\n \tName: {player_weapon.name}\n \tDamage Type: {player_weapon.damage_type}\n "
+            f"\tDamage Stats: {player_weapon.damage_stat}\n")
         return player_weapon
 
-    elif type(player) == "Bard":
+    elif type(player) == Bard:
         player_weapon = Bow("Sharpshooter", "physical", 10)
-        print(f"Here are your weapon stats:\n \tName:{player_weapon.name}\n \tDamage Type:{player_weapon.damage_type}\n "
-              f"\tDamage Stat:{player_weapon.damage_stat}\n")
+        print(
+            f"Here are your weapon stats:\n \tName: {player_weapon.name}\n \tDamage Type: {player_weapon.damage_type}\n "
+            f"\tDamage Stat: {player_weapon.damage_stat}\n")
         return player_weapon
 
 
@@ -222,18 +225,15 @@ def player_attack(player, enemy, weapon):
     chance = randint(1, 6)
     damage_calc = (damage_calc / 6) * chance
     round(damage_calc, 0)
-    print(f"You roll {chance}, you hit {enemy.name} for {damage_calc}")
     enemy.hp = enemy.hp - damage_calc
-
-
-def enemy_attack(player, enemy):
-    pass
-
-
-def check_if_enemy_dead(enemy) -> bool:
-    if enemy.hp == 0.0:
+    if not check_if_enemy_dead(enemy):
         print(f"You have slain the {enemy.name}, well done adventurer")
-        return True
     else:
-        print("Good hit, keep it up")
-        return False
+        print(f"You roll {chance}, you hit {enemy.name} for {damage_calc}. {enemy.name} has {enemy.hp} left")
+
+
+def check_if_enemy_dead(enemy):
+    if enemy.hp > 0.0:
+        print("Good hit! Keep it going!")
+    else:
+        return True
