@@ -7,8 +7,8 @@ from Game import *
 create_title("The Arena")
 
 slow_print("Hello Adventurer! Welcome to The Arena\n\n")
-slow_print("What would you like to do: \n\t*New Game*\n\t*Help*\n\t*Quit*\n\n")
-slow_print("Type start to create a character or quit to close the game\n")
+slow_print("What would you like to do: \n\t*Start*\n\t*Help*\n\t*Quit*\n\n")
+slow_print("Type the option you want\n")
 
 choice = True
 while choice:
@@ -39,15 +39,18 @@ slow_print("As you progress you will get stronger and wiser, with the addition o
 slow_print("As you enter The Arena, steel yourself adventurer for there is no turning back...\n\n")
 create_title("Round 1")
 
-combat = True
 mob1 = enemy_list.pop(0)
 slow_print(f"Your first opponent enters The Arena, prepare yourself {player.name}\n")
 
 
-while combat:
-    combat_choice = input(slow_print("What do you want to do: \n \t*Attack* \n \t*Block* \n \t*Special Attack*\n"))
-    if combat_choice == "attack":
-        player_attack(player, mob1, player_weapon)
-        dead = check_if_enemy_dead(mob1)
-        if dead:
-            combat = False
+while mob1.hp != 0:
+    if mob1.hp <= 0:
+        print(f"You have slain the {mob1.name}! Well done adventurer")
+        break
+    else:
+        combat_choice = input(slow_print("What do you want to do: \n \t*attack* \n \t*block* \n \t*s-attack*\n"))
+        if combat_choice == "attack":
+            player_attack(player, mob1, player_weapon)
+
+
+

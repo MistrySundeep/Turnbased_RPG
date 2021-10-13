@@ -221,19 +221,13 @@ def player_attack(player, enemy, weapon):
     # Calculate damage
     damage_calc = player.damage + weapon.damage_stat
     round(damage_calc, 0)
-    # Calculate hit chance: 1 - 6. 1 is the least amount of damage 6 is full damage
-    chance = randint(1, 6)
-    damage_calc = (damage_calc / 6) * chance
+
+    # Calculate hit chance: 1 - 6. 1 is the least amount of damage 6 is max
+    hit_multiplier = randint(1, 6)
+    damage_calc = (damage_calc / 6) * hit_multiplier
     round(damage_calc, 0)
+
+    # Update update enemy hp
     enemy.hp = enemy.hp - damage_calc
-    if not check_if_enemy_dead(enemy):
-        print(f"You have slain the {enemy.name}, well done adventurer")
-    else:
-        print(f"You roll {chance}, you hit {enemy.name} for {damage_calc}. {enemy.name} has {enemy.hp} left")
+    print(f"You roll {hit_multiplier}, you hit {enemy.name} for {damage_calc}! It has {enemy.hp} left")
 
-
-def check_if_enemy_dead(enemy):
-    if enemy.hp > 0.0:
-        print("Good hit! Keep it going!")
-    else:
-        return True
