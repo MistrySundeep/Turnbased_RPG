@@ -43,14 +43,21 @@ mob1 = enemy_list.pop(0)
 slow_print(f"Your first opponent enters The Arena, prepare yourself {player.name}\n")
 
 
-while mob1.hp != 0:
+while mob1.hp != 0 or player.hp != 0:
     if mob1.hp <= 0:
-        print(f"You have slain the {mob1.name}! Well done adventurer")
+        print(f"\nYou have slain the {mob1.name}! Well done adventurer")
         break
     else:
         combat_choice = input(slow_print("What do you want to do: \n \t*attack* \n \t*block* \n \t*s-attack*\n"))
         if combat_choice == "attack":
             player_attack(player, mob1, player_weapon)
 
-
-
+    if player.hp <= 0:
+        print(f"You have been slain, your adventure ends here...")
+        break
+    else:
+        # Enemy attacks player
+        # Print damage output and player current hp
+        # Print a little message
+        # enemy_attack()
+        pass

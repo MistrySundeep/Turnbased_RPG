@@ -16,7 +16,8 @@ class Warrior(Character):
     def __init__(self, name: str, hp: int, max_hp: int, resolve: int):
         Character.__init__(self, name, hp, max_hp)
         self.resolve = resolve
-        self.damage = (self.level * 5) + 10
+        # Max base damage 11 @ lvl 1
+        self.damage = (self.level * 5) + 6
         self.shield = 0
 
 
@@ -26,7 +27,8 @@ class Mage(Character):
     def __init__(self, name: str, hp: int, max_hp: int, intelligence: int):
         Character.__init__(self, name, hp, max_hp)
         self.int = intelligence
-        self.damage = 0.0
+        # Max base damage 11 @ lvl 1
+        self.damage = (self.level * 5) + 10
 
 
 class Bard(Character):
@@ -35,7 +37,7 @@ class Bard(Character):
     def __init__(self, name: str, hp: int, max_hp: int, song: str):
         Character.__init__(self, name, hp, max_hp)
         self.song = song
-        self.damage = 0.0
+        self.damage = (self.level * 5) + 7
 
 
 class Goblin(Character):
@@ -44,7 +46,7 @@ class Goblin(Character):
     def __init__(self, name: str, hp: int, max_hp: int, enrage: int):
         Character.__init__(self, name, hp, max_hp)
         self.enrage = enrage
-        self.damage = 0.0
+        self.damage = 10
 
 
 class Troll(Character):
@@ -53,7 +55,7 @@ class Troll(Character):
     def __init__(self, name: str, hp: int, max_hp: int, armour: float):
         Character.__init__(self, name, hp, max_hp)
         self.armour = armour
-        self.damage = 0.0
+        self.damage = 10
 
 
 class Boss(Character):

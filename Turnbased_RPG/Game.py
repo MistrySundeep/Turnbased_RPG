@@ -231,3 +231,12 @@ def player_attack(player, enemy, weapon):
     enemy.hp = enemy.hp - damage_calc
     print(f"You roll {hit_multiplier}, you hit {enemy.name} for {damage_calc}! It has {enemy.hp} left")
 
+
+def enemy_attack(player, enemy):
+    scale = player.level
+    damage_calc = enemy.damage * scale
+    round(damage_calc, 0)
+
+
+
+
