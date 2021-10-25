@@ -48,7 +48,7 @@ while mob1.hp != 0 or player.hp != 0:
         print(f"\nYou have slain the {mob1.name}! Well done adventurer")
         break
     else:
-        combat_choice = input(slow_print("What do you want to do: \n \t*attack* \n \t*block* \n \t*s-attack*\n"))
+        combat_choice = input("What do you want to do: \n \t*attack* \n \t*block* \n \t*s-attack*\n")
         if combat_choice == "attack":
             player_turn = player_attack(player, mob1, player_weapon)
             print(player_turn)

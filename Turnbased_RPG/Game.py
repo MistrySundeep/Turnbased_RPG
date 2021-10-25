@@ -212,7 +212,7 @@ def create_mob():
     return created_mob
 
 
-def player_attack(player, enemy, weapon) -> str:
+def player_attack(player, enemy, weapon):
     # Calculate damage
     damage_calc = player.damage + weapon.damage_stat
     round(damage_calc, 0)
@@ -227,7 +227,7 @@ def player_attack(player, enemy, weapon) -> str:
     return f"You roll {hit_multiplier}, you hit {enemy.name} for {damage_calc}! It has {enemy.hp} left"
 
 
-def enemy_attack(player, enemy) -> str:
+def enemy_attack(player, enemy):
     scale = player.level
     damage_calc = enemy.damage * scale
     round(damage_calc, 0)
