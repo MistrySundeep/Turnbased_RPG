@@ -11,8 +11,7 @@ slow_print("Hello Adventurer! Welcome to The Arena\n\n")
 slow_print("What would you like to do: \n\t*Start*\n\t*Help*\n\t*Quit*\n\n")
 slow_print("Type the option you want\n")
 
-choice = True
-while choice:
+while True:
     menu_choice = input("Your choice: ")
     if menu_choice == "quit":
         quit(0)
@@ -22,7 +21,7 @@ while choice:
         player = create_character()
         player_weapon = create_weapon(player)
         save_character(player, player_weapon)
-        choice = False
+        break
 
     elif menu_choice == "help":
         # EDIT THIS TEXT FILE WITH GAME MECHANIC INFO
@@ -51,7 +50,8 @@ while mob1.hp != 0 or player.hp != 0:
     else:
         combat_choice = input(slow_print("What do you want to do: \n \t*attack* \n \t*block* \n \t*s-attack*\n"))
         if combat_choice == "attack":
-            player_attack(player, mob1, player_weapon)
+            player_turn = player_attack(player, mob1, player_weapon)
+            print(player_turn)
 
     if player.hp <= 0:
         print("You have been slain, your adventure ends here...")
@@ -59,4 +59,5 @@ while mob1.hp != 0 or player.hp != 0:
     else:
         enemy_choice = enemy_turn_choice[randint(0, 1)]
         if combat_choice == "attack":
-            enemy_attack(player, mob1)
+            enemy_turn = enemy_attack(player, mob1)
+            print(enemy_turn)

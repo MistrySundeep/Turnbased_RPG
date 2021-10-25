@@ -102,8 +102,8 @@ def save_character(player_class, player_weapon):
             save_file.write(f"Enrage={player_class.resolve}\n")
             save_file.write(f"XP={player_class.xp}\n")
             save_file.write(f"XP={player_class.level}\n")
-            save_file.write(f"\n")
-            save_file.write(f"Weapon=Great Axe\n")
+            save_file.write("\n")
+            save_file.write("Weapon=Great Axe\n")
             save_file.write(f"Name={player_weapon.name}\n")
             save_file.write(f"Name={player_weapon.damage_type}\n")
             save_file.write(f"Name={player_weapon.damage_stat}\n")
@@ -212,7 +212,7 @@ def create_mob():
     return created_mob
 
 
-def player_attack(player, enemy, weapon):
+def player_attack(player, enemy, weapon) -> str:
     # Calculate damage
     damage_calc = player.damage + weapon.damage_stat
     round(damage_calc, 0)
@@ -224,10 +224,10 @@ def player_attack(player, enemy, weapon):
 
     # Update update enemy hp
     enemy.hp -= damage_calc
-    print(f"You roll {hit_multiplier}, you hit {enemy.name} for {damage_calc}! It has {enemy.hp} left")
+    return f"You roll {hit_multiplier}, you hit {enemy.name} for {damage_calc}! It has {enemy.hp} left"
 
 
-def enemy_attack(player, enemy):
+def enemy_attack(player, enemy) -> str:
     scale = player.level
     damage_calc = enemy.damage * scale
     round(damage_calc, 0)
@@ -237,7 +237,8 @@ def enemy_attack(player, enemy):
     round(damage_calc, 0)
 
     player.hp -= damage_calc
-    print(f"The enemy rolls {hit_multiplier}, you have been hit for {damage_calc}! You have {player.hp} left")
+    round(player.hp, 0)
+    return f"The enemy rolls {hit_multiplier}, you have been hit for {damage_calc}! You have {player.hp} left"
 
 
 

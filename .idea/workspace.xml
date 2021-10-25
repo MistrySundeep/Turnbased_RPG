@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e12892ba-dec0-4219-8e1e-1380fd23d99a" name="Changes" comment="Playing with text on pygame screen, may be removed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Turnbased_RPG/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/Turnbased_RPG/Game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Turnbased_RPG/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Turnbased_RPG/Main.py" afterDir="false" />
     </list>
