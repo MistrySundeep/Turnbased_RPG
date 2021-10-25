@@ -1,6 +1,7 @@
 from Game import *
 
 
+enemy_turn_choice = ["attack", "block"]
 # First Intro Game Title (ASCII)
 # Ask user to start new or load game
 # Add help option/command that gives the user info on the different stats and how they work
@@ -53,11 +54,9 @@ while mob1.hp != 0 or player.hp != 0:
             player_attack(player, mob1, player_weapon)
 
     if player.hp <= 0:
-        print(f"You have been slain, your adventure ends here...")
+        print("You have been slain, your adventure ends here...")
         break
     else:
-        # Enemy attacks player
-        # Print damage output and player current hp
-        # Print a little message
-        # enemy_attack()
-        pass
+        enemy_choice = enemy_turn_choice[randint(0, 1)]
+        if combat_choice == "attack":
+            enemy_attack(player, mob1)

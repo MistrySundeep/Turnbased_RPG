@@ -85,8 +85,8 @@ def save_character(player_class, player_weapon):
             save_file.write(f"Intelligence={player_class.int}\n")
             save_file.write(f"XP={player_class.xp}\n")
             save_file.write(f"XP={player_class.level}\n")
-            save_file.write(f"\n")
-            save_file.write(f"Weapon=Runic Wand\n")
+            save_file.write("\n")
+            save_file.write("Weapon=Runic Wand\n")
             save_file.write(f"Name={player_weapon.name}\n")
             save_file.write(f"Name={player_weapon.damage_type}\n")
             save_file.write(f"Name={player_weapon.damage_stat}\n")
@@ -187,10 +187,7 @@ def create_mob_armour():
 
 
 def create_mob_enrage():
-    enrage = []
-    for i in range(1, 7):
-        enrage.append(i)
-    return enrage
+    return [i for i in range(1, 7)]
 
 
 def create_mob():
@@ -201,19 +198,17 @@ def create_mob():
 
     created_mob = []
 
-    for i in range(0, 6):
+    for i in range(6):
         class_choice = randint(0, 1)
         if class_choice == 0:
             mob = Goblin(name[0], hp[0], hp[0], enrage[0])
             hp.pop(0)
             enrage.pop(0)
-            created_mob.insert(i, mob)
         else:
             mob = Troll(name[1], hp[0], hp[0], armour[0])
             hp.pop(0)
             armour.pop()
-            created_mob.insert(i, mob)
-
+        created_mob.insert(i, mob)
     return created_mob
 
 
@@ -228,7 +223,7 @@ def player_attack(player, enemy, weapon):
     round(damage_calc, 0)
 
     # Update update enemy hp
-    enemy.hp = enemy.hp - damage_calc
+    enemy.hp -= damage_calc
     print(f"You roll {hit_multiplier}, you hit {enemy.name} for {damage_calc}! It has {enemy.hp} left")
 
 
@@ -237,6 +232,12 @@ def enemy_attack(player, enemy):
     damage_calc = enemy.damage * scale
     round(damage_calc, 0)
 
+    hit_multiplier = randint(1, 6)
+    damage_calc = (damage_calc / 6) * hit_multiplier
+    round(damage_calc, 0)
+
+    player.hp -= damage_calc
+    print(f"The enemy rolls {hit_multiplier}, you have been hit for {damage_calc}! You have {player.hp} left")
 
 
 
