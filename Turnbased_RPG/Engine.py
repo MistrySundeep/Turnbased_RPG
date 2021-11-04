@@ -18,7 +18,7 @@ class Warrior(Character):
         self.resolve = resolve
         # Max base damage 11 @ lvl 1
         self.damage = (self.level * 5) + 6
-        self.shield = 0
+        self.shield = 5
 
 
 class Mage(Character):
@@ -56,6 +56,7 @@ class Troll(Character):
         Character.__init__(self, name, hp, max_hp)
         self.armour = armour
         self.damage = 10
+        self.xp = 10
 
 
 class Boss(Character):
@@ -65,6 +66,7 @@ class Boss(Character):
         Character.__init__(self, name, hp, max_hp)
         self.corruption = corruption
         self.damage = 0.0
+        self.xp = 20
 
 
 class Weapon:

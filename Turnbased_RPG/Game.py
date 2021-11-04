@@ -214,31 +214,44 @@ def create_mob():
 
 def player_attack(player, enemy, weapon):
     # Calculate damage
-    damage_calc = player.damage + weapon.damage_stat
+    damage_calc = int(player.damage + weapon.damage_stat)
     round(damage_calc, 0)
 
     # Calculate hit chance: 1 - 6. 1 is the least amount of damage 6 is max
     hit_multiplier = randint(1, 6)
-    damage_calc = (damage_calc / 6) * hit_multiplier
+    damage_calc = int((damage_calc / 6) * hit_multiplier)
     round(damage_calc, 0)
 
     # Update update enemy hp
     enemy.hp -= damage_calc
-    return f"You roll {hit_multiplier}, you hit {enemy.name} for {damage_calc}! It has {enemy.hp} left"
+    return f"You roll {hit_multiplier}, you hit {enemy.name} for {damage_calc}! It has {enemy.hp} left!\n"
 
 
 def enemy_attack(player, enemy):
-    scale = player.level
-    damage_calc = enemy.damage * scale
+    damage_calc = int(enemy.damage * player.level)
     round(damage_calc, 0)
 
     hit_multiplier = randint(1, 6)
-    damage_calc = (damage_calc / 6) * hit_multiplier
+    damage_calc = int((damage_calc / 3) * hit_multiplier)
     round(damage_calc, 0)
 
     player.hp -= damage_calc
     round(player.hp, 0)
-    return f"The enemy rolls {hit_multiplier}, you have been hit for {damage_calc}! You have {player.hp} left"
+    return f"The enemy rolls {hit_multiplier}, you have been hit for {damage_calc}! You have {player.hp} left\n"
 
 
+def check_xp(player):
+    match player.xp:
+        case 20:
+            player.level = 2
+            print("DING! You have reached level 2")
+        case 40:
+            player.level = 3
+            print("DING! You have reached level 3")
+        case 60:
+            player.level = 4
+            print("DING! You have reached level 4")
+        case 80:
+            player.level = 5
+            print("DING! You have reached level 5")
 

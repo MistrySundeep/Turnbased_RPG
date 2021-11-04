@@ -46,6 +46,8 @@ slow_print(f"Your first opponent enters The Arena, prepare yourself {player.name
 while mob1.hp != 0 or player.hp != 0:
     if mob1.hp <= 0:
         print(f"\nYou have slain the {mob1.name}! Well done adventurer")
+        player.xp += mob1.xp
+        check_xp(player)
         break
     else:
         combat_choice = input("What do you want to do: \n \t*attack* \n \t*block* \n \t*s-attack*\n")
